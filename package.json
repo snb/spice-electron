@@ -24,6 +24,7 @@
     "electron": "^38.4.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "test-native-addon": "file:test-native-addon"
   }
 }

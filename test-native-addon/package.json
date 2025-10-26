@@ -1,0 +1,20 @@
+{
+  "name": "test-native-addon",
+  "version": "0.0.1",
+  "description": "Test native add-on for Electron",
+  "main": "js/index.js",
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('build', { recursive: true, force: true })\"",
+    "build": "node-gyp configure && node-gyp build"
+  },
+  "keywords": [],
+  "author": "snb",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "node-addon-api": "^8.5.0"
+  },
+  "devDependencies": {
+    "node-gyp": "^11.1.0"
+  }
+}

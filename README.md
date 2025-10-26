@@ -6,7 +6,9 @@ include native libraries required for doing cool stuff.
 
 Dependencies
 ------------
-To build or run in dev mode, you'll need node.js and npm.
+To build or run in dev mode, you'll need node.js and appropriate compiler tools
+for your platform. On macOS, that's Xcode's command line tools, and for Windows,
+Visual Studio.
 
 Running
 -------
