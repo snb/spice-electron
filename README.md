@@ -4,6 +4,17 @@ Spice Client PoC
 Small demo proof of concept for an electron app for macOS and Windows that can
 include native libraries required for doing cool stuff.
 
+This is largely copied from Electron's tutorial
+[here](https://www.electronjs.org/docs/latest/tutorial/tutorial-first-app) and
+for native code
+[here](https://www.electronjs.org/docs/latest/tutorial/native-code-and-electron).
+
+main.js is the main process that has access to node and can run our native
+addon package. renderer.js is run within the rendering process so can make
+changes to the UI that's in index.html. preload.js sets up connections between
+these processes so that the renderer can communicate with the main process via
+IPC and run the native addon.
+
 Dependencies
 ------------
 To build or run in dev mode, you'll need node.js and appropriate compiler tools
