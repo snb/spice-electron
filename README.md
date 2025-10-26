@@ -10,6 +10,18 @@ To build or run in dev mode, you'll need node.js and appropriate compiler tools
 for your platform. On macOS, that's Xcode's command line tools, and for Windows,
 Visual Studio.
 
+Before trying to run or build a packaged version, install npm dependencies with
+
+    npm install
+
+You'll also need to separately install (copy) the test-native-addon package from
+its subdirectory. This will likely need to be re-run any time after making a
+change in that package. `npm install` just creates a symlink for this dependency,
+and that does not seem to work well when packaging, so this command tells it to
+copy instead of symlinking.
+
+    npm install --install-links ./test-native-addon
+
 Running
 -------
 
