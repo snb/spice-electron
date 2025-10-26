@@ -1,4 +1,10 @@
 const { app, BrowserWindow } = require('electron/main')
+const nativeAddon = require('test-native-addon/js')
+
+const runNativeAddon = () => {
+  const nativeOutput = nativeAddon.helloWorld('Electron')
+  console.log("Got this output from native package: " + nativeOutput)
+}
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -11,6 +17,7 @@ const createWindow = () => {
 
 app.whenReady().then(() => {
   createWindow()
+  runNativeAddon()
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
