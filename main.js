@@ -1,23 +1,22 @@
-const { app, BrowserWindow } = require('electron/main')
+const { app, BrowserWindow, ipcMain } = require('electron/main')
+const path = require('node:path')
 const nativeAddon = require('test-native-addon/js')
-
-const runNativeAddon = () => {
-  const nativeOutput = nativeAddon.helloWorld('Electron')
-  console.log("Got this output from native package: " + nativeOutput)
-}
 
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
-    height: 600
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
   })
 
   win.loadFile('index.html')
 }
 
 app.whenReady().then(() => {
+  ipcMain.handle('handleNativeAddon', () => nativeAddon.helloWorld('Wow amaze'))
   createWindow()
-  runNativeAddon()
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {

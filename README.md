@@ -22,5 +22,7 @@ To package up into zipped .app bundle on macOS or MSI installer for Windows
 
     npm run make
 
+Built artifact will be found in out/
+
 TODO: add instructions on signing the app so other people can run it. See
 <https://www.electronjs.org/docs/latest/tutorial/tutorial-packaging#important-signing-your-code>
